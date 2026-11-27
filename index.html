@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>櫻花特別尋覓</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sky">
+    <div class="petals" aria-hidden="true"></div>
+    <svg class="butterfly" viewBox="0 0 64 40" aria-hidden="true">
+      <g fill="#f7fbff" stroke="#d7c6ef" stroke-width="1">
+        <ellipse cx="24" cy="16" rx="14" ry="10"></ellipse>
+        <ellipse cx="40" cy="16" rx="14" ry="10"></ellipse>
+        <ellipse cx="22" cy="28" rx="10" ry="7"></ellipse>
+        <ellipse cx="42" cy="28" rx="10" ry="7"></ellipse>
+      </g>
+      <path d="M32 10v22" stroke="#8d74b8" stroke-width="2"></path>
+    </svg>
+
+    <header class="topbar">
+      <div class="brand">
+        <button type="button" class="back" id="back" aria-label="返回">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path d="M15 5L8 12l7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <h1>尋覓</h1>
+      </div>
+      <div class="funds">
+        <button type="button" class="sound" id="sound" aria-pressed="true">音效開</button>
+        <div class="fund">
+          <span class="ticket" aria-hidden="true"></span>
+          <span id="tickets">0</span>
+          <button type="button" class="plus" id="ticket-plus" aria-label="尋覓券">+</button>
+        </div>
+        <div class="fund">
+          <span class="orb" aria-hidden="true"></span>
+          <span id="jade">60</span>
+          <button type="button" class="plus" id="jade-plus" aria-label="領取福利輝石">+</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="stage">
+      <nav class="side" aria-label="活動">
+        <button type="button" class="banner-card" data-line="櫻花這側的位置，也都讓出來了。">
+          <span class="squad" aria-hidden="true">
+            <i class="chip c1"></i><i class="chip c2"></i><i class="chip c3"></i><i class="chip c4"></i>
+          </span>
+          <span>特別聯動・櫻花</span>
+        </button>
+        <button type="button" class="banner-card" data-line="竹林那側今天也休息。">
+          <span class="squad" aria-hidden="true">
+            <i class="chip c5"></i><i class="chip c2"></i><i class="chip c6"></i><i class="chip c4"></i>
+          </span>
+          <span>特別聯動・竹林</span>
+        </button>
+        <button type="button" class="banner-card road sakura" data-line="櫻花之路的盡頭，站著福利熊。">櫻花之路</button>
+        <button type="button" class="banner-card road bamboo" data-line="竹林之路的盡頭，還是福利熊。">竹林之路</button>
+      </nav>
+
+      <div class="center">
+        <div class="halo" aria-hidden="true"></div>
+        <div class="cast">
+          <button type="button" class="actor" data-line="大。">
+            <svg class="mascot" viewBox="0 0 220 330" role="img" aria-label="大全熊">
+              <g class="bob">
+                <ellipse cx="110" cy="312" rx="52" ry="8" fill="rgba(70,40,100,.18)"></ellipse>
+                <g class="wave">
+                  <path d="M46 168c-8-36 6-58 24-52 2 22-4 40-16 54z" fill="#fff"></path>
+                  <circle cx="58" cy="112" r="15" fill="#fff"></circle>
+                </g>
+                <circle cx="68" cy="86" r="20" fill="#ef4b4b"></circle>
+                <circle cx="154" cy="86" r="20" fill="#ef4b4b"></circle>
+                <circle cx="68" cy="86" r="11" fill="#ffd5dc"></circle>
+                <circle cx="154" cy="86" r="11" fill="#ffd5dc"></circle>
+                <circle cx="112" cy="132" r="56" fill="#fffdfb"></circle>
+                <path d="M64 112h96v20c0 12-20 22-48 22s-48-10-48-22z" fill="#ef4b4b"></path>
+                <rect x="70" y="68" width="84" height="48" rx="12" fill="#ef4b4b"></rect>
+                <rect x="98" y="54" width="26" height="20" rx="5" fill="#d9333a"></rect>
+                <circle cx="111" cy="92" r="15" fill="#fff"></circle>
+                <path d="M101 96l5-11 5 7 4-12 7 16" fill="none" stroke="#e23b3b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                <ellipse cx="92" cy="136" rx="7" ry="10" fill="#2b2428"></ellipse>
+                <ellipse cx="132" cy="136" rx="7" ry="10" fill="#2b2428"></ellipse>
+                <ellipse cx="94" cy="133" rx="2.2" ry="3" fill="#fff"></ellipse>
+                <ellipse cx="134" cy="133" rx="2.2" ry="3" fill="#fff"></ellipse>
+                <ellipse cx="112" cy="154" rx="9" ry="6.5" fill="#f3a36e"></ellipse>
+                <path d="M98 164q14 12 28 0" fill="none" stroke="#2b2428" stroke-width="2.4" stroke-linecap="round"></path>
+                <ellipse cx="74" cy="156" rx="8" ry="4" fill="#ffb4c2" opacity=".8"></ellipse>
+                <ellipse cx="150" cy="156" rx="8" ry="4" fill="#ffb4c2" opacity=".8"></ellipse>
+                <path d="M68 176c6 10 20 16 44 16s38-6 44-16c18 16 28 52 24 104H44c-4-52 6-88 24-104z" fill="#ef4b4b"></path>
+                <circle cx="90" cy="214" r="5" fill="#f2c14e"></circle>
+                <circle cx="134" cy="214" r="5" fill="#f2c14e"></circle>
+                <path d="M78 188h68v16H78z" fill="#d9333a"></path>
+                <text x="112" y="276" text-anchor="middle" font-size="48" font-weight="700" fill="#fff" font-family="Songti TC, PMingLiU, serif">大</text>
+                <ellipse cx="168" cy="214" rx="14" ry="20" fill="#fffdfb"></ellipse>
+              </g>
+            </svg>
+            <span class="plate"><b>大全熊</b><small>全聯福利中心</small></span>
+          </button>
+
+          <button type="button" class="actor fuli" data-line="下一抽就是我。">
+            <svg class="mascot" viewBox="0 0 250 330" role="img" aria-label="福利熊">
+              <g class="bob">
+                <ellipse cx="118" cy="312" rx="56" ry="8" fill="rgba(70,40,100,.18)"></ellipse>
+                <path d="M78 168c-6 48-2 96 8 132" stroke="#f7f4ee" stroke-width="16" fill="none" stroke-linecap="round"></path>
+                <path d="M162 164c10 42 8 90 0 128" stroke="#f7f4ee" stroke-width="14" fill="none" stroke-linecap="round"></path>
+                <g>
+                  <rect x="196" y="78" width="9" height="188" rx="4.5" fill="#d09255"></rect>
+                  <circle cx="200" cy="70" r="22" fill="#f0d7a4"></circle>
+                  <circle cx="200" cy="70" r="14" fill="#c81f32"></circle>
+                  <ellipse cx="194" cy="64" rx="5" ry="3.5" fill="#ffd5d8" opacity=".85"></ellipse>
+                </g>
+                <path d="M78 186c-16 18-22 64-16 112h112c8-48 2-94-14-112-18 16-42 20-62 12-8-4-14-8-20-12z" fill="#fbf8f2" stroke="#e4cb8e" stroke-width="3"></path>
+                <path d="M112 196h16l-2 92h-14z" fill="#f3e2b0"></path>
+                <path d="M86 214c18 10 48 10 68 0" fill="none" stroke="#e4cb8e" stroke-width="3"></path>
+                <text x="120" y="246" text-anchor="middle" font-size="32" font-weight="700" fill="#d23a3a" font-family="Songti TC, PMingLiU, serif">福</text>
+                <circle cx="186" cy="230" r="12" fill="#fffdfb"></circle>
+                <circle cx="74" cy="92" r="18" fill="#fffdfb"></circle>
+                <circle cx="164" cy="92" r="18" fill="#fffdfb"></circle>
+                <circle cx="74" cy="92" r="10" fill="#ffd5dc"></circle>
+                <circle cx="164" cy="92" r="10" fill="#ffd5dc"></circle>
+                <circle cx="120" cy="132" r="52" fill="#fffdfb"></circle>
+                <path d="M74 114h92v16c0 10-20 18-46 18s-46-8-46-18z" fill="#7ec8ef"></path>
+                <rect x="80" y="74" width="80" height="44" rx="10" fill="#67b7e6"></rect>
+                <rect x="106" y="62" width="24" height="18" rx="4" fill="#4ea3d6"></rect>
+                <circle cx="120" cy="96" r="14" fill="#fff"></circle>
+                <path d="M110 100l5-10 5 7 4-11 7 14" fill="none" stroke="#2f86c4" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path>
+                <ellipse cx="102" cy="136" rx="6.5" ry="9" fill="#2b2428"></ellipse>
+                <ellipse cx="138" cy="136" rx="6.5" ry="9" fill="#2b2428"></ellipse>
+                <ellipse cx="104" cy="133" rx="2" ry="2.6" fill="#fff"></ellipse>
+                <ellipse cx="140" cy="133" rx="2" ry="2.6" fill="#fff"></ellipse>
+                <ellipse cx="120" cy="152" rx="8" ry="6" fill="#f3a36e"></ellipse>
+                <path d="M108 162q12 10 24 0" fill="none" stroke="#2b2428" stroke-width="2.4" stroke-linecap="round"></path>
+                <ellipse cx="86" cy="154" rx="7" ry="3.5" fill="#ffb4c2" opacity=".8"></ellipse>
+                <ellipse cx="154" cy="154" rx="7" ry="3.5" fill="#ffb4c2" opacity=".8"></ellipse>
+              </g>
+            </svg>
+            <span class="plate"><b>福利熊</b><small>全聯福利中心</small></span>
+          </button>
+
+          <button type="button" class="actor" data-line="蘋果是帽子，不是獎品。">
+            <svg class="mascot" viewBox="0 0 230 330" role="img" aria-label="蘋狗">
+              <g class="bob">
+                <ellipse cx="112" cy="312" rx="54" ry="8" fill="rgba(70,40,100,.18)"></ellipse>
+                <path d="M150 168c28 8 52 28 58 70 4 28-8 62-16 78H96c8-40 4-78-8-104 14-20 38-36 62-44z" fill="#5c3f86"></path>
+                <ellipse cx="108" cy="214" rx="52" ry="58" fill="#fffdfb"></ellipse>
+                <ellipse cx="62" cy="168" rx="16" ry="26" fill="#fffdfb" transform="rotate(-18 62 168)"></ellipse>
+                <ellipse cx="156" cy="164" rx="16" ry="26" fill="#fffdfb" transform="rotate(16 156 164)"></ellipse>
+                <ellipse cx="62" cy="168" rx="9" ry="16" fill="#ffd5dc" transform="rotate(-18 62 168)"></ellipse>
+                <ellipse cx="156" cy="164" rx="9" ry="16" fill="#ffd5dc" transform="rotate(16 156 164)"></ellipse>
+                <circle cx="108" cy="132" r="46" fill="#fffdfb"></circle>
+                <circle cx="108" cy="78" r="30" fill="#e04646"></circle>
+                <ellipse cx="96" cy="68" rx="8" ry="5" fill="#ff9d9d" opacity=".8"></ellipse>
+                <path d="M108 50c6-14 18-16 22-6" stroke="#3f8d48" stroke-width="3" fill="none" stroke-linecap="round"></path>
+                <ellipse cx="126" cy="44" rx="11" ry="6" fill="#67b85a" transform="rotate(28 126 44)"></ellipse>
+                <ellipse cx="90" cy="132" rx="6" ry="8" fill="#2b2428"></ellipse>
+                <ellipse cx="124" cy="132" rx="6" ry="8" fill="#2b2428"></ellipse>
+                <ellipse cx="92" cy="130" rx="2" ry="2.4" fill="#fff"></ellipse>
+                <ellipse cx="126" cy="130" rx="2" ry="2.4" fill="#fff"></ellipse>
+                <ellipse cx="108" cy="148" rx="7" ry="5" fill="#c98464"></ellipse>
+                <path d="M96 156q12 10 24 0" fill="none" stroke="#2b2428" stroke-width="2.3" stroke-linecap="round"></path>
+                <ellipse cx="74" cy="148" rx="7" ry="3.5" fill="#ffb4c2" opacity=".75"></ellipse>
+                <ellipse cx="140" cy="148" rx="7" ry="3.5" fill="#ffb4c2" opacity=".75"></ellipse>
+              </g>
+            </svg>
+            <span class="plate"><b>蘋狗</b><small>全聯福利中心</small></span>
+          </button>
+
+          <button type="button" class="actor kiwi" data-line="新裝扮先掛著，這一池不是我。">
+            <svg class="mascot" viewBox="0 0 220 330" role="img" aria-label="奇異狗">
+              <g class="bob">
+                <ellipse cx="110" cy="312" rx="50" ry="8" fill="rgba(70,40,100,.18)"></ellipse>
+                <path d="M70 176c-8 20-12 70-8 112h76c4-42 0-92-8-112-10 12-28 16-44 12-6-2-12-6-16-12z" fill="#241c22"></path>
+                <path d="M96 188h28v78c-6 10-22 10-28 0z" fill="#3a3034"></path>
+                <ellipse cx="110" cy="210" rx="36" ry="28" fill="#f4e2cf"></ellipse>
+                <circle cx="110" cy="132" r="48" fill="#e7c39a"></circle>
+                <ellipse cx="70" cy="150" rx="16" ry="24" fill="#8d6244" transform="rotate(-24 70 150)"></ellipse>
+                <ellipse cx="150" cy="150" rx="16" ry="24" fill="#8d6244" transform="rotate(24 150 150)"></ellipse>
+                <circle cx="110" cy="74" r="28" fill="#b7d85a"></circle>
+                <ellipse cx="100" cy="66" rx="7" ry="4" fill="#ddf5a4" opacity=".8"></ellipse>
+                <path d="M110 48c5-12 16-12 18-4" stroke="#5c8a32" stroke-width="3" fill="none" stroke-linecap="round"></path>
+                <ellipse cx="124" cy="42" rx="10" ry="5" fill="#6aaa3e" transform="rotate(24 124 42)"></ellipse>
+                <path d="M92 112q18 8 36 0" fill="none" stroke="#8d6244" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M90 122q8 6 14 2" fill="none" stroke="#8d6244" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M116 124q8 6 16-2" fill="none" stroke="#8d6244" stroke-width="2" stroke-linecap="round"></path>
+                <ellipse cx="92" cy="136" rx="7" ry="8" fill="#2b2428"></ellipse>
+                <ellipse cx="128" cy="136" rx="7" ry="8" fill="#2b2428"></ellipse>
+                <ellipse cx="94" cy="134" rx="2" ry="2.4" fill="#fff"></ellipse>
+                <ellipse cx="130" cy="134" rx="2" ry="2.4" fill="#fff"></ellipse>
+                <ellipse cx="110" cy="156" rx="18" ry="13" fill="#4a342c"></ellipse>
+                <ellipse cx="104" cy="154" rx="3" ry="4" fill="#1c1412"></ellipse>
+                <ellipse cx="116" cy="154" rx="3" ry="4" fill="#1c1412"></ellipse>
+                <path d="M104 164q6 8 14 2" fill="#f29aa8"></path>
+                <ellipse cx="78" cy="150" rx="7" ry="3" fill="#efb0a4" opacity=".55"></ellipse>
+                <ellipse cx="142" cy="150" rx="7" ry="3" fill="#efb0a4" opacity=".55"></ellipse>
+              </g>
+            </svg>
+            <i class="up-tag">新裝扮 UP!</i>
+            <span class="plate"><b>奇異狗</b><small>全聯福利中心</small></span>
+          </button>
+        </div>
+      </div>
+
+      <aside class="rail">
+        <p class="timer"><span class="clock" aria-hidden="true"></span>11天14小時</p>
+        <button type="button" class="detail" id="open-detail">
+          <span class="detail-ico" aria-hidden="true">目</span>
+          查看詳情
+        </button>
+        <button type="button" class="book" id="open-book" data-line="圖鑑還停在 51，這一抽不會改變它。">
+          <span class="book-ico" aria-hidden="true"></span>
+          <strong>51</strong>
+        </button>
+      </aside>
+
+      <button type="button" class="edge" id="open-history" aria-label="尋覓紀錄">‹</button>
+    </div>
+
+    <footer class="dock">
+      <div class="lockup">
+        <p class="lockup-kicker">粉絲向模擬</p>
+        <p class="lockup-title"><span>櫻花</span>特別尋覓</p>
+      </div>
+      <div class="dock-main">
+        <div class="loot">
+          <div class="items" aria-hidden="true">
+            <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="6" fill="#f2c14e"/><g fill="#ffd0e2"><ellipse cx="18" cy="8" rx="4" ry="6"/><ellipse cx="18" cy="8" rx="4" ry="6" transform="rotate(72 18 18)"/><ellipse cx="18" cy="8" rx="4" ry="6" transform="rotate(144 18 18)"/><ellipse cx="18" cy="8" rx="4" ry="6" transform="rotate(216 18 18)"/><ellipse cx="18" cy="8" rx="4" ry="6" transform="rotate(288 18 18)"/></g></svg>
+            <svg viewBox="0 0 36 36"><rect x="8" y="6" width="20" height="24" rx="3" fill="#7eb8e8"/><path d="M14 12h8M14 18h8M14 24h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 36 36"><path d="M18 6l8 6v8c0 6-8 10-8 10S10 26 10 20v-8z" fill="#8fd0c4"/><circle cx="18" cy="16" r="3" fill="#fff"/></svg>
+            <svg viewBox="0 0 36 36"><path d="M10 28c8-2 8-18 16-20-2 10 0 16-6 18 4 0 8 2 10 4H10z" fill="#f0d2a2"/></svg>
+            <svg viewBox="0 0 36 36"><path d="M18 6l3 8h8l-6 5 2 8-7-5-7 5 2-8-6-5h8z" fill="#f2c14e"/></svg>
+            <svg viewBox="0 0 36 36"><rect x="9" y="8" width="18" height="20" rx="3" fill="#c9b6f2"/><circle cx="18" cy="18" r="4" fill="#fff"/></svg>
+          </div>
+          <p>使用輝石十連尋覓，至少會遇到 1 隻福利熊</p>
+        </div>
+        <div class="pulls">
+          <button type="button" class="pull" id="pull-one" data-count="1">
+            <span class="pull-label">尋覓1次</span>
+            <span class="pull-cost"><i class="orb"></i>×200</span>
+          </button>
+          <button type="button" class="pull ten" id="pull-ten" data-count="10">
+            <span class="pull-label">尋覓10次</span>
+            <span class="pull-cost"><i class="orb"></i>×1800</span>
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <svg class="meadow" viewBox="0 0 1440 210" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <g id="daisy">
+          <path d="M0 2c1 16 1 34 0 48" stroke="#74b15e" stroke-width="2" fill="none"></path>
+          <g fill="#fff">
+            <ellipse cx="0" cy="-14" rx="6" ry="10"></ellipse>
+            <ellipse cx="0" cy="-14" rx="6" ry="10" transform="rotate(60)"></ellipse>
+            <ellipse cx="0" cy="-14" rx="6" ry="10" transform="rotate(120)"></ellipse>
+            <ellipse cx="0" cy="-14" rx="6" ry="10" transform="rotate(180)"></ellipse>
+            <ellipse cx="0" cy="-14" rx="6" ry="10" transform="rotate(240)"></ellipse>
+            <ellipse cx="0" cy="-14" rx="6" ry="10" transform="rotate(300)"></ellipse>
+          </g>
+          <circle r="5" fill="#f2c14e"></circle>
+        </g>
+        <g id="bloom">
+          <g fill="#ffc4dc">
+            <ellipse cx="0" cy="-9" rx="4" ry="7"></ellipse>
+            <ellipse cx="0" cy="-9" rx="4" ry="7" transform="rotate(72)"></ellipse>
+            <ellipse cx="0" cy="-9" rx="4" ry="7" transform="rotate(144)"></ellipse>
+            <ellipse cx="0" cy="-9" rx="4" ry="7" transform="rotate(216)"></ellipse>
+            <ellipse cx="0" cy="-9" rx="4" ry="7" transform="rotate(288)"></ellipse>
+          </g>
+          <circle r="3" fill="#ff8fb3"></circle>
+        </g>
+      </defs>
+      <use href="#daisy" transform="translate(70 150)"></use>
+      <use href="#daisy" transform="translate(150 168) scale(.85)"></use>
+      <use href="#bloom" transform="translate(210 156)"></use>
+      <use href="#daisy" transform="translate(280 172) scale(1.15)"></use>
+      <use href="#daisy" transform="translate(390 160) scale(.7)"></use>
+      <use href="#bloom" transform="translate(470 176) scale(.9)"></use>
+      <use href="#daisy" transform="translate(560 168)"></use>
+      <use href="#daisy" transform="translate(690 176) scale(1.2)"></use>
+      <use href="#bloom" transform="translate(800 160)"></use>
+      <use href="#daisy" transform="translate(900 174) scale(.8)"></use>
+      <use href="#daisy" transform="translate(1020 166) scale(1.05)"></use>
+      <use href="#bloom" transform="translate(1120 178) scale(.85)"></use>
+      <use href="#daisy" transform="translate(1220 160)"></use>
+      <use href="#daisy" transform="translate(1340 174) scale(.9)"></use>
+    </svg>
+  </div>
+
+  <div id="summon" class="summon" data-phase="idle" data-count="1" hidden>
+    <div class="circle" aria-hidden="true"></div>
+    <div class="flash" aria-hidden="true"></div>
+    <div class="sparks" aria-hidden="true"></div>
+    <p class="summon-line" id="summon-line">尋覓中</p>
+    <div class="omen-card" aria-hidden="true">福</div>
+    <div class="result" id="result">
+      <p class="result-kicker" id="result-kicker"></p>
+      <p class="rarity">特別尋覓</p>
+      <div class="result-hero" id="result-hero"></div>
+      <h2 id="result-title">福利熊</h2>
+      <p class="result-sub" id="result-sub">CV 全聯福利中心</p>
+      <p class="result-voice" id="result-voice"></p>
+      <div class="result-actions">
+        <button type="button" class="pull again" id="again">再尋覓一次</button>
+        <button type="button" class="ghost" id="ok">回到畫面</button>
+      </div>
+    </div>
+    <div class="deal" id="deal"></div>
+    <button type="button" class="skip" id="skip">跳過演出</button>
+  </div>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <h2 id="modal-title">櫻花特別尋覓</h2>
+      <p>這一池的結果是固定的：<strong>福利熊</strong>。</p>
+      <ul>
+        <li>尋覓 1 次，200 輝石</li>
+        <li>尋覓 10 次，1800 輝石</li>
+        <li>輝石不夠的時候，福利中心會贊助這一抽</li>
+      </ul>
+      <p>累計遇到福利熊 <strong id="total-bears">0</strong> 隻。</p>
+      <p class="fine">畫面是依尋覓介面重新畫的粉絲向模擬，角色是原創描繪，和官方遊戲無關。</p>
+      <button type="button" class="ghost dark" id="modal-close">關閉</button>
+    </div>
+  </div>
+
+  <aside class="drawer" id="drawer" hidden>
+    <div class="drawer-head">
+      <h2>尋覓紀錄</h2>
+      <button type="button" class="ghost tiny" id="close-history">關閉</button>
+    </div>
+    <ol id="history-list"></ol>
+  </aside>
+
+  <div id="toast" class="toast" hidden role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
