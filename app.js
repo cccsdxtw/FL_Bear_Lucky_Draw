@@ -7,6 +7,11 @@ const ticketEl = $("#tickets");
 const historyList = $("#history-list");
 const summon = $("#summon");
 const deal = $("#deal");
+const stageCard = $("#stage-card");
+const stageFront = $("#stage-front");
+const stageCount = $("#stage-count");
+const pillar = $("#pillar");
+const sparks = $(".sparks");
 const resultKicker = $("#result-kicker");
 const resultTitle = $("#result-title");
 const resultRarity = $("#result-rarity");
@@ -288,6 +293,12 @@ function fillFace(node, item) {
   const name = document.createElement("em");
   name.textContent = item.name;
   node.append(name);
+  if (!item.duplicate && (item.kind === "character" || item.kind === "outfit")) {
+    const tag = document.createElement("span");
+    tag.className = "new-tag";
+    tag.textContent = "NEW";
+    node.append(tag);
+  }
 }
 
 function showHero(item) {
@@ -322,7 +333,16 @@ function buildDeal(results) {
   });
 }
 
+const BEAT = {
+  blue: { glow: 280, after: 260 },
+  outfit: { glow: 520, after: 380 },
+  purple: { glow: 760, after: 480 },
+  "outfit-up": { glow: 1150, after: 820 },
+  character: { glow: 1320, after: 980 },
+};
+
 function finish(count, sponsored) {
+  const jumped = skipped;
   skipped = true;
   releaseGate?.();
   const results = current;
@@ -345,8 +365,47 @@ function finish(count, sponsored) {
   if (dupes.some((item) => item.kind === "character")) notes.push("重複雀士變成許願石");
   if (dupes.some((item) => item.kind === "outfit")) notes.push("重複裝扮變成星之石");
   resultVoice.textContent = notes.join(" · ");
-  fanfare(focus);
+  summon.classList.remove("bursting");
+  if (jumped) fanfare(focus);
   $("#ok").focus();
+}
+
+function pulseSparks() {
+  sparks.classList.remove("go");
+  void sparks.offsetWidth;
+  sparks.classList.add("go");
+}
+
+async function presentCard(item, index, total) {
+  if (skipped) return;
+  const beat = BEAT[item.rarity] || BEAT.blue;
+  const high = item.rarity === "character" || item.rarity === "outfit-up";
+  summon.dataset.phase = "stage";
+  summon.dataset.rarity = item.rarity;
+  summon.classList.remove("bursting");
+  stageCount.textContent = total > 1 ? `${index + 1} / ${total}` : "";
+  stageFront.replaceChildren();
+  stageFront.className = "stage-front";
+  fillFace(stageFront, item);
+  stageCard.className = "stage-card";
+  pillar.className = "pillar";
+  void stageCard.offsetWidth;
+  stageCard.classList.add("live");
+  pillar.classList.add("on");
+  pulseSparks();
+  tone(196, 0, 0.08, 0.03);
+  await gate(beat.glow);
+  if (skipped) return;
+  stageCard.classList.add("open");
+  if (high) {
+    void summon.offsetWidth;
+    summon.classList.add("bursting");
+    chime();
+  } else if (item.rarity === "purple" || item.kind === "outfit") {
+    tone(494, 0, 0.16, 0.04);
+    tone(659, 0.07, 0.2, 0.035);
+  } else blip();
+  await gate(beat.after);
 }
 
 async function play(count, sponsored) {
@@ -354,33 +413,20 @@ async function play(count, sponsored) {
   summon.hidden = false;
   summon.dataset.phase = "charge";
   summon.dataset.count = String(count);
+  summon.dataset.rarity = "";
+  summon.classList.remove("bursting");
   $("#summon-line").textContent = "尋覓中";
   resultHero.replaceChildren();
-  if (count === 10) buildDeal(current);
-  else deal.replaceChildren();
+  buildDeal(current);
   document.body.classList.add("locked");
 
-  await gate(count === 10 ? 680 : 820);
+  await gate(460);
   if (skipped) return finish(count, sponsored);
 
-  if (count === 1) {
-    summon.dataset.phase = "card";
-    await gate(980);
+  for (let i = 0; i < current.length; i += 1) {
     if (skipped) return finish(count, sponsored);
-    summon.dataset.phase = "burst";
-    await gate(640);
-    return finish(count, sponsored);
+    await presentCard(current[i], i, current.length);
   }
-
-  summon.dataset.phase = "deal";
-  for (const card of deal.children) {
-    if (skipped) break;
-    card.classList.add("open");
-    blip();
-    await gate(140);
-  }
-  if (skipped) return finish(count, sponsored);
-  await gate(320);
   return finish(count, sponsored);
 }
 
