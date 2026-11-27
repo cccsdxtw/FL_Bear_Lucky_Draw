@@ -763,6 +763,30 @@ button { font-family: inherit; }
   text-shadow: 0 0 22px rgba(255, 206, 110, 0.85);
 }
 
+.result h2.long {
+  font-size: 32px;
+  letter-spacing: 0.04em;
+}
+
+.prize {
+  position: relative;
+  z-index: 1;
+  width: min(280px, 76vw);
+  min-height: 148px;
+  display: grid;
+  place-items: center;
+  padding: 22px 18px;
+  border-radius: 18px;
+  font-size: 28px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.prize.rarity-purple { background: linear-gradient(#f6e9ff, #c9a4ee); color: #4d2b78; }
+.prize.rarity-blue { background: linear-gradient(#e8f5ff, #8ec6f6); color: #1c4f88; }
+.prize.rarity-outfit,
+.prize.rarity-outfit-up { background: linear-gradient(#fff4c8, #f0b429); color: #6a4010; }
+
 .result-sub,
 .result-voice { margin: 0; color: #f6e4b6; }
 
@@ -840,8 +864,16 @@ button { font-family: inherit; }
   overflow: hidden;
 }
 
-.mini-front svg { height: 78px; width: auto; }
-.mini-front em { font-style: normal; font-size: 11px; font-weight: 800; color: #7a3b12; padding-bottom: 4px; }
+.mini-front svg { height: 72px; width: auto; }
+.mini-front em { font-style: normal; font-size: 11px; font-weight: 800; color: #7a3b12; padding: 0 2px 4px; line-height: 1.2; }
+.mini-front .mark { margin-top: 10px; font-size: 22px; font-weight: 900; }
+.mini-front.rarity-purple { background: linear-gradient(#f7ecff, #d7b6f4); }
+.mini-front.rarity-blue { background: linear-gradient(#eef7ff, #b7daf8); }
+.mini-front.rarity-outfit,
+.mini-front.rarity-outfit-up { background: linear-gradient(#fff8ea, #ffe08a); }
+.mini-front.rarity-character { background: linear-gradient(#fffdf6, #ffe7a8); }
+.mini-front.rarity-purple em,
+.mini-front.rarity-blue em { color: #2d2450; }
 
 .skip {
   position: absolute;
@@ -903,8 +935,24 @@ button { font-family: inherit; }
 
 .drawer-head { display: flex; justify-content: space-between; align-items: center; }
 .drawer h2 { margin: 0; font-size: 20px; }
+.drawer { overflow: auto; }
 .drawer ol { margin: 0; padding-left: 1.1em; line-height: 1.7; }
 .drawer .empty { list-style: none; margin-left: -1em; color: #d9cfee; }
+.vault-title { margin: 18px 0 8px; font-size: 18px; }
+.vault-stats { margin: 0 0 6px; color: #ffe7ad; font-weight: 700; }
+#shop p { margin: 0 0 8px; line-height: 1.5; font-size: 14px; }
+.shop-btn {
+  width: 100%;
+  margin: 0 0 6px;
+  border: 1px solid rgba(255, 230, 180, 0.35);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  padding: 8px 10px;
+  text-align: left;
+  cursor: pointer;
+}
+.shop-btn:disabled { opacity: 0.55; cursor: default; }
 
 .toast {
   position: fixed;

@@ -64,7 +64,7 @@
       <div class="center">
         <div class="halo" aria-hidden="true"></div>
         <div class="cast">
-          <button type="button" class="actor" data-line="大。">
+          <button type="button" class="actor daquan" data-line="大。">
             <svg class="mascot" viewBox="0 0 220 330" role="img" aria-label="大全熊">
               <g class="bob">
                 <ellipse cx="110" cy="312" rx="52" ry="8" fill="rgba(70,40,100,.18)"></ellipse>
@@ -101,7 +101,7 @@
             <span class="plate"><b>大全熊</b><small>全聯福利中心</small></span>
           </button>
 
-          <button type="button" class="actor fuli" data-line="下一抽就是我。">
+          <button type="button" class="actor fuli" data-line="雀士只有我們四個。">
             <svg class="mascot" viewBox="0 0 250 330" role="img" aria-label="福利熊">
               <g class="bob">
                 <ellipse cx="118" cy="312" rx="56" ry="8" fill="rgba(70,40,100,.18)"></ellipse>
@@ -141,7 +141,7 @@
             <span class="plate"><b>福利熊</b><small>全聯福利中心</small></span>
           </button>
 
-          <button type="button" class="actor" data-line="蘋果是帽子，不是獎品。">
+          <button type="button" class="actor apple" data-line="蘋果是帽子，不是獎品。">
             <svg class="mascot" viewBox="0 0 230 330" role="img" aria-label="蘋狗">
               <g class="bob">
                 <ellipse cx="112" cy="312" rx="54" ry="8" fill="rgba(70,40,100,.18)"></ellipse>
@@ -169,7 +169,7 @@
             <span class="plate"><b>蘋狗</b><small>全聯福利中心</small></span>
           </button>
 
-          <button type="button" class="actor kiwi" data-line="新裝扮先掛著，這一池不是我。">
+          <button type="button" class="actor kiwi" data-line="新裝扮是這池的 UP 裝扮。">
             <svg class="mascot" viewBox="0 0 220 330" role="img" aria-label="奇異狗">
               <g class="bob">
                 <ellipse cx="110" cy="312" rx="50" ry="8" fill="rgba(70,40,100,.18)"></ellipse>
@@ -210,7 +210,7 @@
           <span class="detail-ico" aria-hidden="true">目</span>
           查看詳情
         </button>
-        <button type="button" class="book" id="open-book" data-line="圖鑑還停在 51，這一抽不會改變它。">
+        <button type="button" class="book" id="open-book" aria-label="倉庫與尋覓紀錄">
           <span class="book-ico" aria-hidden="true"></span>
           <strong>51</strong>
         </button>
@@ -234,7 +234,7 @@
             <svg viewBox="0 0 36 36"><path d="M18 6l3 8h8l-6 5 2 8-7-5-7 5 2-8-6-5h8z" fill="#f2c14e"/></svg>
             <svg viewBox="0 0 36 36"><rect x="9" y="8" width="18" height="20" rx="3" fill="#c9b6f2"/><circle cx="18" cy="18" r="4" fill="#fff"/></svg>
           </div>
-          <p>使用輝石十連尋覓，至少會遇到 1 隻福利熊</p>
+          <p>使用輝石十連尋覓，至少會獲得 1 個紫色禮物</p>
         </div>
         <div class="pulls">
           <button type="button" class="pull" id="pull-one" data-count="1">
@@ -299,7 +299,7 @@
     <div class="omen-card" aria-hidden="true">福</div>
     <div class="result" id="result">
       <p class="result-kicker" id="result-kicker"></p>
-      <p class="rarity">特別尋覓</p>
+      <p class="rarity" id="result-rarity">尋覓</p>
       <div class="result-hero" id="result-hero"></div>
       <h2 id="result-title">福利熊</h2>
       <p class="result-sub" id="result-sub">CV 全聯福利中心</p>
@@ -316,14 +316,20 @@
   <div class="modal" id="modal" hidden>
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <h2 id="modal-title">櫻花特別尋覓</h2>
-      <p>這一池的結果是固定的：<strong>福利熊</strong>。</p>
+      <p>機率照雀魂尋覓。雀士只有圖上這四隻。</p>
       <ul>
-        <li>尋覓 1 次，200 輝石</li>
-        <li>尋覓 10 次，1800 輝石</li>
-        <li>輝石不夠的時候，福利中心會贊助這一抽</li>
+        <li>雀士 5%：大全熊、福利熊、蘋狗、奇異狗各 1.25%</li>
+        <li>裝扮 15%：奇異狗・新裝扮 7.35%，其餘五件共 7.65%</li>
+        <li>禮物 80%：紫色禮物 5%，藍色禮物 75%</li>
+        <li>十連是 9 次尋覓，再加 1 個必出的紫色禮物</li>
+        <li>單抽先扣 1 張尋覓券，沒有才扣 200 輝石</li>
+        <li>十連有 10 張券就扣券，否則扣 1800 輝石</li>
+        <li>每次尋覓 +1 信仰。150 換一隻未持有的雀士，50 換一件未持有的裝扮</li>
+        <li>重複雀士變 75 許願石，重複裝扮變 5 星之石</li>
+        <li>輝石和尋覓券都不夠時仍可尋覓，福利中心贊助，機率不變</li>
       </ul>
-      <p>累計遇到福利熊 <strong id="total-bears">0</strong> 隻。</p>
-      <p class="fine">畫面是依尋覓介面重新畫的粉絲向模擬，角色是原創描繪，和官方遊戲無關。</p>
+      <p>已持有雀士 <strong id="total-bears">0</strong> 隻。</p>
+      <p class="fine">藍禮、紫禮是尋覓會出的八個系列。畫面是重新畫的粉絲向模擬，和官方遊戲無關。</p>
       <button type="button" class="ghost dark" id="modal-close">關閉</button>
     </div>
   </div>
@@ -334,9 +340,12 @@
       <button type="button" class="ghost tiny" id="close-history">關閉</button>
     </div>
     <ol id="history-list"></ol>
+    <h2 class="vault-title">倉庫</h2>
+    <div id="shop"></div>
   </aside>
 
   <div id="toast" class="toast" hidden role="status"></div>
+  <script src="gacha.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
